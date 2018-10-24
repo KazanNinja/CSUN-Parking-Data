@@ -5,7 +5,6 @@ from lxml import html
 # import CSV
 import datetime
 
-test="Testing github pushing and pulling"
 
 url = 'https://m.csun.edu/default/find_parking/index'
 spacesAvailable = {"B3": None, "B5": None, "G3": None}
