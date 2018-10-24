@@ -14,7 +14,7 @@ spacesTaken = {"B3": None, "B5": None, "G3": None}
 def main():
     # year, month, day, hour, minute, second
     # waitUntilTime(2018, 10, 17, 14, 0, 0)
-    futureTime = datetime.datetime.now() + datetime.timedelta(minutes=30)
+    futureTime = datetime.datetime.now() + datetime.timedelta(minutes=1)
     waitUntilTime2(futureTime)
 
     # WORKING ON FIXING THE DAMN PROBLEM WITH THE TIME ROUNDUP TINHG FUCK
@@ -74,10 +74,18 @@ def getLotNumberCount():
 def waitUntilTime2(dt):
     now = datetime.datetime.now()
     now = convertTime(now)
-    print(now)
+    print("Current Date/Time: " + str(now))
 
     dt = convertTime(dt)
-    print(dt)
+    print("Future  Date/Time: " + str(dt))
+
+    print("Waiting until " + str(dt))
+    while(now != dt):
+        now = datetime.datetime.now()
+        now = convertTime(now)
+        sleep(1/100)
+
+    print("Finished waiting")
 
 
 
