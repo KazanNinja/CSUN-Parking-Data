@@ -14,8 +14,15 @@ spacesTaken = {"B3": None, "B5": None, "G3": None}
 def main():
     # year, month, day, hour, minute, second
     # waitUntilTime(2018, 10, 17, 14, 0, 0)
-    futureTime = datetime.datetime.now() + datetime.timedelta(minutes=1)
-    waitUntilTime2(futureTime)
+
+    startAt = datetime.datetime(2018,10,31,12,23,0,0)
+    waitUntilTime2(startAt)
+    for i in range(4):
+        getLotNumberCount()
+        print(spacesTaken)
+        futureTime = datetime.datetime.now() + datetime.timedelta(minutes=1)
+        waitUntilTime2(futureTime)
+        #Write to CSV
 
     # WORKING ON FIXING THE DAMN PROBLEM WITH THE TIME ROUNDUP TINHG FUCK
 
@@ -85,7 +92,7 @@ def waitUntilTime2(dt):
         now = convertTime(now)
         sleep(1/100)
 
-    print("Finished waiting")
+    print("Finished waiting..." + "\n")
 
 
 
@@ -113,20 +120,6 @@ def convertTime(inputtedDateTime):
     dt = inputtedDateTime
     newNow = (dt - datetime.timedelta(microseconds=dt.microsecond) - datetime.timedelta(seconds=dt.second))
     return newNow
-
-# #Starts at inputted datetime minus seconds and microseconds
-# def startAt(dt):
-#     now = dt
-#     newNow = (now - datetime.timedelta(microseconds=now.microsecond) - datetime.timedelta(seconds=now.second))
-#
-#     print(newNow)
-#     then = newNow + datetime.timedelta(minutes=30)
-#     print(then)
-#
-#     # futureTime = datetime.datetime(2018, 10, 17, 13, 0)
-#     # print(futureTime)
-#     # print(futureTime + datetime.timedelta(minutes=30))
-
 
 if __name__ == "__main__":
     main()
