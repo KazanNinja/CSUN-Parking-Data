@@ -26,6 +26,15 @@ def main():
         # Write to CSV
         loopCount = loopCount + 1
 
+    # WORKING ON FIXING THE DAMN PROBLEM WITH THE TIME ROUNDUP TINHG FUCK
+
+    # for i in range(4):
+    #     getLotNumberCount()
+    #     CSV.writeRow(spacesAvailable['B3'], spacesAvailable['B5'], spacesAvailable['G3'])
+    #     print("Written to " + CSV.filename + " B3: " + str(spacesAvailable['B3']) + " B5: " + str(spacesAvailable['B5']) + " G3: " + str(spacesAvailable['G3']))
+    #     sleep(60 * 30)
+
+
 def getLotNumberCount():
     B3max = 2063
     B5max = 1361
@@ -86,6 +95,7 @@ def waitUntilTime2(dt):
         sleep(1/100)
 
     print("Finished waiting..." + "\n")
+
 
 
 def convertTime(inputtedDateTime):
