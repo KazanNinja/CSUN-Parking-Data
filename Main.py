@@ -13,15 +13,17 @@ spacesTaken = {"B3": None, "B5": None, "G3": None}
 
 def main():
 
-    startAt = datetime.datetime(2018,12,3,12,12,0,0)
+    startAt = datetime.datetime(2018,12,3,12,30,0,0)
     waitUntilTime2(startAt)
     loopCount = 0
-    for i in range(4):  # Loops # amount of times
+    for i in range(15): # Loops # amount of times
         print("Loop count " + str(loopCount))
         getLotNumberCount()  # This puts current parking data into array.
-        print(spacesTaken)
+        print("Spaces Taken: " + str(spacesTaken))
+        print("Spaces Avail: " + str(spacesAvailable))
 
-        futureTime = datetime.datetime.now() + datetime.timedelta(minutes=1)  # Finds future time based off minutes=
+
+        futureTime = datetime.datetime.now() + datetime.timedelta(minutes=5)  # Finds future time based off minutes=
         waitUntilTime2(futureTime)  # Waits until inputted future time.
 
         # Writes to CSV file of the spaces available
