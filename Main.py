@@ -12,26 +12,19 @@ spacesTaken = {"B3": None, "B5": None, "G3": None}
 
 
 def main():
-    # year, month, day, hour, minute, second
-    # waitUntilTime(2018, 10, 17, 14, 0, 0)
 
-    startAt = datetime.datetime(2018,10,31,12,23,0,0)
+    startAt = datetime.datetime(2018,12,3,11,55,0,0)
     waitUntilTime2(startAt)
-    for i in range(4):
-        getLotNumberCount()
+    loopCount = 0
+    for i in range(4):  # Loops # amount of times
+        print("Loop count " + str(loopCount))
+        getLotNumberCount()  # This puts current parking data into array.
         print(spacesTaken)
-        futureTime = datetime.datetime.now() + datetime.timedelta(minutes=1)
-        waitUntilTime2(futureTime)
-        #Write to CSV
 
-    # WORKING ON FIXING THE DAMN PROBLEM WITH THE TIME ROUNDUP TINHG FUCK
-
-    # for i in range(4):
-    #     getLotNumberCount()
-    #     CSV.writeRow(spacesAvailable['B3'], spacesAvailable['B5'], spacesAvailable['G3'])
-    #     print("Written to " + CSV.filename + " B3: " + str(spacesAvailable['B3']) + " B5: " + str(spacesAvailable['B5']) + " G3: " + str(spacesAvailable['G3']))
-    #     sleep(60 * 30)
-
+        futureTime = datetime.datetime.now() + datetime.timedelta(minutes=1)  # Finds future time based off minutes=
+        waitUntilTime2(futureTime)  # Waits until inputted future time.
+        # Write to CSV
+        loopCount = loopCount + 1
 
 def getLotNumberCount():
     B3max = 2063
@@ -93,24 +86,6 @@ def waitUntilTime2(dt):
         sleep(1/100)
 
     print("Finished waiting..." + "\n")
-
-
-
-def waitUntilTime(year, month, day, hour, minute, second):
-    # Gets current time and future time
-    now = datetime.datetime.now()
-    timeThen = datetime.datetime(year, month, day, hour, minute, second, 0)
-
-    # Formats time into readable format
-    nowFormatted = now.strftime('%B %d %Y %H:%M:%S')
-    timeThenFormatted = timeThen.strftime('%B %d %Y %H:%M:%S')
-
-    print("Now Waiting Until: " + timeThenFormatted + "...")
-    while (nowFormatted != timeThenFormatted):
-        nowFormatted = datetime.datetime.now().strftime('%B %d %Y %H:%M:%S')
-        print(nowFormatted)  # Can Remove
-        sleep(1)
-    print("Wait Finished")
 
 
 def convertTime(inputtedDateTime):
