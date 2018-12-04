@@ -5,15 +5,13 @@ from lxml import html
 import CSV
 import datetime
 
-
 url = 'https://m.csun.edu/default/find_parking/index'
 spacesAvailable = {"B3": None, "B5": None, "G3": None}
 spacesTaken = {"B3": None, "B5": None, "G3": None}
 
-
 def main():
 
-    startAt = datetime.datetime(2018,12,3,12,30,0,0)
+    startAt = datetime.datetime(2018,12,4,11,30,0,0)
     waitUntilTime2(startAt)
     loopCount = 0
     for i in range(15): # Loops # amount of times
@@ -32,14 +30,8 @@ def main():
 
         loopCount = loopCount + 1
 
-    # WORKING ON FIXING THE DAMN PROBLEM WITH THE TIME ROUNDUP TINHG FUCK
-
-    # for i in range(4):
-    #     getLotNumberCount()
     #     CSV.writeRow(spacesAvailable['B3'], spacesAvailable['B5'], spacesAvailable['G3'])
     #     print("Written to " + CSV.filename + " B3: " + str(spacesAvailable['B3']) + " B5: " + str(spacesAvailable['B5']) + " G3: " + str(spacesAvailable['G3']))
-    #     sleep(60 * 30)
-
 
 def getLotNumberCount():
     B3max = 2063
@@ -101,8 +93,6 @@ def waitUntilTime2(dt):
         sleep(1/100)
 
     print("Finished waiting..." + "\n")
-
-
 
 def convertTime(inputtedDateTime):
     #converts time to simple time
